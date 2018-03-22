@@ -35,8 +35,8 @@ class LoginViewController: UIViewController,
         gesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(gesture)
         
-        accountField.text = nil
-        passwdField.text = nil
+        accountField.text = "admin@teddy.com"
+        passwdField.text = "111111"
     }
     
     @IBAction func onGoogleLogin(_ sender: Any) {
@@ -79,5 +79,9 @@ class LoginViewController: UIViewController,
             tbHUD.dismiss()
             self.performSegue(withIdentifier: adDefines.kSegueGoogle, sender: nil)
         }
+    }
+    
+    override func keyboardDismiss(gesture: UITapGestureRecognizer?) {
+        self.view.endEditing(true)
     }
 }
