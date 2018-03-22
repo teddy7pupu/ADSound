@@ -18,6 +18,13 @@
 		7988A0D32063820900607737 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7988A0D22063820900607737 /* GoogleService-Info.plist */; };
 		7988A0D92063885400607737 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0D82063885400607737 /* MainViewController.swift */; };
 		7988A0DB206398B400607737 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0DA206398B400607737 /* LoginViewController.swift */; };
+		7988A0DD20639D6600607737 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0DC20639D6600607737 /* UserManager.swift */; };
+		7988A0E020639F0400607737 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0DF20639F0400607737 /* AlertHelper.swift */; };
+		7988A0E220639F1800607737 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0E120639F1800607737 /* ViewControllerHelper.swift */; };
+		7988A0E42063A04B00607737 /* tbHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0E32063A04B00607737 /* tbHUD.swift */; };
+		7988A0E62063AAAD00607737 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0E52063AAAD00607737 /* AdminViewController.swift */; };
+		7988A0E82063ABF000607737 /* adDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0E72063ABF000607737 /* adDefines.swift */; };
+		7988A0EA2063B1FD00607737 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0E92063B1FD00607737 /* GoogleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +65,13 @@
 		7988A0D22063820900607737 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7988A0D82063885400607737 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7988A0DA206398B400607737 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7988A0DC20639D6600607737 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		7988A0DF20639F0400607737 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		7988A0E120639F1800607737 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		7988A0E32063A04B00607737 /* tbHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbHUD.swift; sourceTree = "<group>"; };
+		7988A0E52063AAAD00607737 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		7988A0E72063ABF000607737 /* adDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adDefines.swift; sourceTree = "<group>"; };
+		7988A0E92063B1FD00607737 /* GoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		C142B26C7C5E26504DE86C2B /* Pods-ADSoundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSoundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSoundTests/Pods-ADSoundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB67FFDA020BFE904F44BBE5 /* Pods_ADSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A9BFB04C6C351C04BFFC52 /* Pods_ADSoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				7988A0A42063817700607737 /* AppDelegate.swift */,
+				7988A0E72063ABF000607737 /* adDefines.swift */,
+				7988A0DE20639EDB00607737 /* Extension */,
 				7988A0D4206383E100607737 /* Model */,
 				7988A0D5206383EF00607737 /* View */,
 				7988A0D6206383F900607737 /* Controller */,
@@ -159,6 +175,7 @@
 		7988A0D4206383E100607737 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7988A0DC20639D6600607737 /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +183,7 @@
 		7988A0D5206383EF00607737 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7988A0E32063A04B00607737 /* tbHUD.swift */,
 				7988A0A82063817700607737 /* Main.storyboard */,
 			);
 			path = View;
@@ -176,6 +194,8 @@
 			children = (
 				7988A0D82063885400607737 /* MainViewController.swift */,
 				7988A0DA206398B400607737 /* LoginViewController.swift */,
+				7988A0E52063AAAD00607737 /* AdminViewController.swift */,
+				7988A0E92063B1FD00607737 /* GoogleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +208,15 @@
 				7988A0D22063820900607737 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7988A0DE20639EDB00607737 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7988A0E120639F1800607737 /* ViewControllerHelper.swift */,
+				7988A0DF20639F0400607737 /* AlertHelper.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D2DBEA2C04048AD265D40399 /* Frameworks */ = {
@@ -508,7 +537,14 @@
 			files = (
 				7988A0DB206398B400607737 /* LoginViewController.swift in Sources */,
 				7988A0A52063817700607737 /* AppDelegate.swift in Sources */,
+				7988A0E220639F1800607737 /* ViewControllerHelper.swift in Sources */,
+				7988A0E42063A04B00607737 /* tbHUD.swift in Sources */,
+				7988A0E62063AAAD00607737 /* AdminViewController.swift in Sources */,
+				7988A0E82063ABF000607737 /* adDefines.swift in Sources */,
+				7988A0DD20639D6600607737 /* UserManager.swift in Sources */,
+				7988A0E020639F0400607737 /* AlertHelper.swift in Sources */,
 				7988A0D92063885400607737 /* MainViewController.swift in Sources */,
+				7988A0EA2063B1FD00607737 /* GoogleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
