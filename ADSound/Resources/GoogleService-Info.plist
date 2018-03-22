@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>414457014166-av5gff9m9hid26ovrlak9u5q9557m2gv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.414457014166-av5gff9m9hid26ovrlak9u5q9557m2gv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBuLoAhfdg-qVv_IfonHH8J-KvpU-2I9Pc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>414457014166</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>msp310.ADSound</string>
+	<key>PROJECT_ID</key>
+	<string>adsound-1993</string>
+	<key>STORAGE_BUCKET</key>
+	<string>adsound-1993.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:414457014166:ios:66fb7944ff71db71</string>
+	<key>DATABASE_URL</key>
+	<string>https://adsound-1993.firebaseio.com</string>
+</dict>
+</plist>
