@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  adminViewController.swift
 //  ADSound
 //
 //  Created by msp310 on 2018/3/22.
@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class MainViewController: UIViewController {
+class AdminViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -26,5 +27,11 @@ class MainViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func onSignout(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        UserManager.sharedInstance().signOut()
+        self.navigationController?.popViewController(animated: true)
     }
 }
