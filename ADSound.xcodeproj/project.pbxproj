@@ -17,6 +17,7 @@
 		7988A0C52063817800607737 /* ADSoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0C42063817800607737 /* ADSoundUITests.swift */; };
 		7988A0D32063820900607737 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7988A0D22063820900607737 /* GoogleService-Info.plist */; };
 		7988A0D92063885400607737 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0D82063885400607737 /* MainViewController.swift */; };
+		7988A0DB206398B400607737 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0DA206398B400607737 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7988A0C62063817800607737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7988A0D22063820900607737 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7988A0D82063885400607737 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7988A0DA206398B400607737 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C142B26C7C5E26504DE86C2B /* Pods-ADSoundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSoundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSoundTests/Pods-ADSoundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB67FFDA020BFE904F44BBE5 /* Pods_ADSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A9BFB04C6C351C04BFFC52 /* Pods_ADSoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				7988A0D82063885400607737 /* MainViewController.swift */,
+				7988A0DA206398B400607737 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7988A0DB206398B400607737 /* LoginViewController.swift in Sources */,
 				7988A0A52063817700607737 /* AppDelegate.swift in Sources */,
 				7988A0D92063885400607737 /* MainViewController.swift in Sources */,
 			);
