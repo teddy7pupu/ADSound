@@ -120,7 +120,6 @@ class AdminViewController: UIViewController
                 })
             }
             actions.append(quitAction)
-        
         return actions
     }
 }
