@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class adDefines: NSObject {
+    static let BUNDLEID = Bundle.main.bundleIdentifier!
+    
+    static let kMember = "Member"
+    
     static let kSegueAdmin = "SegueAdmin"
     static let kSegueGoogle = "SegueGoogle"
 }

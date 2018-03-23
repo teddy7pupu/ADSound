@@ -219,15 +219,93 @@
                                     <action selector="onSignout:" destination="uaG-kr-nne" eventType="touchUpInside" id="xCa-0P-znd"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="wqe-f8-ejQ">
+                                <rect key="frame" x="30" y="94" width="270" height="30"/>
+                                <color key="backgroundColor" name="SPLight"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfI-iO-nwr">
+                                <rect key="frame" x="315" y="94" width="30" height="30"/>
+                                <color key="backgroundColor" name="SPGreen"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAdd:" destination="uaG-kr-nne" eventType="touchUpInside" id="koD-0i-Enm"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-4c-mcy">
+                                <rect key="frame" x="15" y="185" width="345" height="402"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="ac1-ju-n4Q">
+                                    <rect key="frame" x="0.0" y="72" width="345" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberCell" id="LBa-gh-qKu" customClass="MemberCell" customModule="ADSound" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="345" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LBa-gh-qKu" id="k9T-ec-lRT">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPE-80-w74">
+                                                    <rect key="frame" x="151.5" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MPE-80-w74" firstAttribute="centerY" secondItem="k9T-ec-lRT" secondAttribute="centerY" id="jNr-MV-24x"/>
+                                                <constraint firstItem="MPE-80-w74" firstAttribute="centerX" secondItem="k9T-ec-lRT" secondAttribute="centerX" id="sLN-my-Kl1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mailLbl" destination="MPE-80-w74" id="GZ2-bM-OnQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uaG-kr-nne" id="M3G-Rb-9e0"/>
+                                    <outlet property="delegate" destination="uaG-kr-nne" id="gci-9w-8sL"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------------------------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9U-uL-ftQ">
+                                <rect key="frame" x="15" y="144" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VZ5-zj-Glx" firstAttribute="trailing" secondItem="v9U-uL-ftQ" secondAttribute="trailing" constant="15" id="06a-34-Esl"/>
+                            <constraint firstItem="v9U-uL-ftQ" firstAttribute="leading" secondItem="VZ5-zj-Glx" secondAttribute="leading" constant="15" id="0BW-Qh-cIV"/>
+                            <constraint firstItem="NGa-4c-mcy" firstAttribute="leading" secondItem="VZ5-zj-Glx" secondAttribute="leading" constant="15" id="12A-FY-r0L"/>
+                            <constraint firstItem="jfI-iO-nwr" firstAttribute="leading" secondItem="wqe-f8-ejQ" secondAttribute="trailing" constant="15" id="1Lh-Gu-2A3"/>
+                            <constraint firstItem="jfI-iO-nwr" firstAttribute="top" secondItem="VZ5-zj-Glx" secondAttribute="top" constant="30" id="Arw-bB-mqz"/>
+                            <constraint firstItem="VZ5-zj-Glx" firstAttribute="trailing" secondItem="NGa-4c-mcy" secondAttribute="trailing" constant="15" id="S3O-9n-ucp"/>
                             <constraint firstItem="VZ5-zj-Glx" firstAttribute="bottom" secondItem="Vip-Od-79w" secondAttribute="bottom" id="Vcu-NJ-VLc"/>
+                            <constraint firstItem="v9U-uL-ftQ" firstAttribute="top" secondItem="jfI-iO-nwr" secondAttribute="bottom" constant="20" id="XRW-cc-C4d"/>
                             <constraint firstItem="VZ5-zj-Glx" firstAttribute="trailing" secondItem="Vip-Od-79w" secondAttribute="trailing" id="enu-5d-ghH"/>
+                            <constraint firstItem="NGa-4c-mcy" firstAttribute="top" secondItem="v9U-uL-ftQ" secondAttribute="bottom" constant="20" id="gpB-ii-YUY"/>
+                            <constraint firstItem="wqe-f8-ejQ" firstAttribute="top" secondItem="VZ5-zj-Glx" secondAttribute="top" constant="30" id="hn3-Hh-ET7"/>
+                            <constraint firstItem="wqe-f8-ejQ" firstAttribute="leading" secondItem="VZ5-zj-Glx" secondAttribute="leading" constant="30" id="m1k-gw-ZzI"/>
+                            <constraint firstItem="Vip-Od-79w" firstAttribute="top" secondItem="NGa-4c-mcy" secondAttribute="bottom" constant="20" id="okK-Db-aXR"/>
                             <constraint firstItem="Vip-Od-79w" firstAttribute="leading" secondItem="VZ5-zj-Glx" secondAttribute="leading" id="oyz-oO-aPI"/>
+                            <constraint firstItem="VZ5-zj-Glx" firstAttribute="trailing" secondItem="jfI-iO-nwr" secondAttribute="trailing" constant="30" id="tiC-ec-d91"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VZ5-zj-Glx"/>
                     </view>
+                    <connections>
+                        <outlet property="mailLbl" destination="wqe-f8-ejQ" id="qZp-eJ-r5Q"/>
+                        <outlet property="mainTable" destination="NGa-4c-mcy" id="jE3-Dj-KOv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1n-nh-ATG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,21 +315,6 @@
     <resources>
         <namedColor name="SPGreen">
             <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPGreen">
-            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPGreen">
-            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPLight">
             <color red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
