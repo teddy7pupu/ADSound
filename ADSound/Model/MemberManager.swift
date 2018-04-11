@@ -7,11 +7,8 @@
 //
 
 import Foundation
-
-import Foundation
 import Firebase
 import FirebaseDatabase
-import SystemConfiguration.CaptiveNetwork
 
 class MemberManager: NSObject{
     
