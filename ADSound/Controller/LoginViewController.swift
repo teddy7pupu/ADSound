@@ -66,14 +66,14 @@ class LoginViewController: UIViewController,
     }
     
     func getMemberList(){
-        MemberManager.sharedInstance().getMemberList(completion: { (member, error) in
-            if let member = member { 
-                if self.checkMember(member.mail) {
-                    self.performSegue(withIdentifier: adDefines.kSegueGoogle, sender: nil)
-                }
-            }
-            tbHUD.dismiss()
-        })
+//        MemberManager.sharedInstance().getMemberList(completion: { (member, error) in
+//            if let member = member {
+//                if self.checkMember(member.mail) {
+//                    self.performSegue(withIdentifier: adDefines.kSegueGoogle, sender: nil)
+//                }
+//            }
+//            tbHUD.dismiss()
+//        })
     }
     
     func checkMember(_ mail: [String]?) -> Bool{

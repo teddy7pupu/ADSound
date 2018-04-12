@@ -16,4 +16,6 @@ class adDefines: NSObject {
     
     static let kSegueAdmin = "SegueAdmin"
     static let kSegueGoogle = "SegueGoogle"
+    static let kSegueNewMember = "SegueNewMember"
+    static let kSegueEditMember = "SegueEditMember"
 }

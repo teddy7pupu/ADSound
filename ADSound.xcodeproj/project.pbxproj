@@ -18,6 +18,7 @@
 		794BBA2E207CA1E900366380 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794BBA2D207CA1E900366380 /* AudioToolbox.framework */; };
 		794BBA30207CA1F500366380 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794BBA2F207CA1F500366380 /* Security.framework */; };
 		794BBA32207CA20100366380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794BBA31207CA20100366380 /* AVFoundation.framework */; };
+		794BBA3A207F4B3D00366380 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794BBA39207F4B3D00366380 /* NewMemberViewController.swift */; };
 		7988A0A52063817700607737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7988A0A42063817700607737 /* AppDelegate.swift */; };
 		7988A0AA2063817700607737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7988A0A82063817700607737 /* Main.storyboard */; };
 		7988A0AC2063817700607737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7988A0AB2063817700607737 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		794BBA2D207CA1E900366380 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		794BBA2F207CA1F500366380 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		794BBA31207CA20100366380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		794BBA39207F4B3D00366380 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		7988A0A12063817700607737 /* ADSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7988A0A42063817700607737 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7988A0A92063817700607737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				7988A0DA206398B400607737 /* LoginViewController.swift */,
 				7988A0E52063AAAD00607737 /* AdminViewController.swift */,
 				7988A0E92063B1FD00607737 /* GoogleViewController.swift */,
+				794BBA39207F4B3D00366380 /* NewMemberViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				7903C5872064261C002E9E26 /* MemberCell.swift in Sources */,
 				7988A0D92063885400607737 /* MainViewController.swift in Sources */,
 				7903C58520641D5A002E9E26 /* MemberManager.swift in Sources */,
+				794BBA3A207F4B3D00366380 /* NewMemberViewController.swift in Sources */,
 				7988A0EA2063B1FD00607737 /* GoogleViewController.swift in Sources */,
 				7903C58320641D43002E9E26 /* Member.swift in Sources */,
 			);

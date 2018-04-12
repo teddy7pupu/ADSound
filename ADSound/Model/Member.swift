@@ -9,8 +9,12 @@
 import Foundation
 
 struct Member: Codable {
-    var mail: [String]? //mail名稱
-    
+    var name: String?     //廣套名稱
+    var mail: String?     //mail名稱
+    var acrId: String?    //acrId
+    var adDomain: String? //跳轉網址
+    var online: Bool?
+    var number: String?   // 廠商編號
     init() {
     }
     
