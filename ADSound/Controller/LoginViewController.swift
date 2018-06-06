@@ -66,18 +66,32 @@ class LoginViewController: UIViewController,
     }
     
     func getMemberList(){
-//        MemberManager.sharedInstance().getMemberList(completion: { (member, error) in
-//            if let member = member {
-//                if self.checkMember(member.mail) {
-//                    self.performSegue(withIdentifier: adDefines.kSegueGoogle, sender: nil)
-//                }
-//            }
-//            tbHUD.dismiss()
-//        })
+        MemberManager.sharedInstance().getMemberList(completion: { (member, error) in
+            if let member = member {
+                if self.checkMember(member) {
+                    self.performSegue(withIdentifier: adDefines.kSegueGoogle, sender: member)
+                }
+            }
+            tbHUD.dismiss()
+        })
     }
     
-    func checkMember(_ mail: [String]?) -> Bool{
-        if mail?.index(of: currerUser!) == nil{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == adDefines.kSegueGoogle, let memberList = sender as? [Member] {
+            let detailView = segue.destination as! GoogleViewController
+            for member in memberList{
+                if member.mail == currerUser { detailView.member = member }
+            }
+            
+        }
+    }
+    
+    func checkMember(_ member: [Member]?) -> Bool{
+        var mail: [String] = []
+        for member in member!{
+            mail.append(member.mail!)
+        }
+        if mail.index(of: currerUser!) == nil{
             GIDSignIn.sharedInstance().signOut()
             UserManager.sharedInstance().signOut()
             self.showAlert(message: "查無廠商資訊")
