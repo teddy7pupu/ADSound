@@ -12,17 +12,18 @@ class MainViewController: UIViewController {
     
     var _start = false
     var _client: ACRCloudRecognition?
+    var memberlist: [Member]?
     
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var volumeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupLayout()
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -38,6 +39,7 @@ class MainViewController: UIViewController {
     func setupLayout(){
         _start = false
         self._client = ACRCloudRecognition(config: configSet())
+        anonymously()
     }
     
     //MARK: Active
@@ -52,6 +54,18 @@ class MainViewController: UIViewController {
         self._start = false
     }
     
+    
+    @IBAction func onBoard(_ sender: Any) {
+        UserManager.sharedInstance().signOut()
+    }
+    
+    func anonymously(){
+        tbHUD.show()
+        UserManager.sharedInstance().signInAnonymously() { (user, error) in
+            self.getList()
+        }
+    }
+    
     func configSet() -> ACRCloudConfig {
         let config = ACRCloudConfig()
         config.accessKey = "410e8cfb22063226f595225682451abc"
@@ -59,7 +73,7 @@ class MainViewController: UIViewController {
         config.host = "identify-ap-southeast-1.acrcloud.com"
         config.recMode = rec_mode_remote  //if you want to identify your offline db, set the recMode to "rec_mode_local"
         config.audioType = "recording"
-        config.requestTimeout = 10
+        config.requestTimeout = 5
         config.protocol = "https"
         config.keepPlaying = 2;  //1 is restore the previous Audio Category when stop recording. 2 (default), only stop recording, do nothing with the Audio Category.
         
@@ -76,9 +90,15 @@ class MainViewController: UIViewController {
     func handleResult(_ result: String, resType: ACRCloudResultType) -> Void
     {
         DispatchQueue.main.async {
-            print(result)
-            self._client?.stopRecordRec()
-            self._start = false
+            for member in self.memberlist! {
+                if result.contains(member.acrId!) {
+                    print(member)
+                    self.showAlert(message:member.name! )
+                    self._client?.stopRecordRec()
+                    self._start = false
+                    return
+                }
+            }
         }
     }
     
@@ -94,4 +114,12 @@ class MainViewController: UIViewController {
             self.stateLabel.text = String(format:"State : %@",state)
         }
     }
+    
+    func getList(){
+        MemberManager.sharedInstance().getMemberList(completion: { (list, error) in
+            if let member = list { self.memberlist = member }
+            tbHUD.dismiss()
+        })
+    }
+    
 }

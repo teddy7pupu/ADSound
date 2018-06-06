@@ -53,13 +53,16 @@ class UserManager: NSObject {
         mAuth?.signIn(withEmail: email, password: password, completion: completion)
     }
     
+    func signInAnonymously( completion:@escaping (User?, Error?) -> Void) {
+        mAuth?.signInAnonymously(completion: completion)
+    }
+    
     func signOut() {
         do {
             try mAuth?.signOut()
         } catch let signOutError as NSError {
             NSLog("[Auth] Error:%@", signOutError)
         }
-        //StaffManager.sharedInstance().currentStaff = nil
         NSLog("[Auth] SignOut success")
     }
 }

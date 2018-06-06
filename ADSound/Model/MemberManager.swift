@@ -31,7 +31,7 @@ class MemberManager: NSObject{
     }
     
     func updateMember(_ member: Member!,completion:@escaping (Member?, Error?) -> Void) {
-        memberRef()?.updateChildValues(member.dictionaryData(), withCompletionBlock: { (error, reference) in
+        memberRef()?.child(member.number!).updateChildValues(member.dictionaryData(), withCompletionBlock: { (error, reference) in
             if let error = error {
                 completion(nil, error)
                 return
@@ -40,11 +40,11 @@ class MemberManager: NSObject{
         })
     }
     
-    func getMemberList(completion:@escaping (Member?, Error?) -> Void) {
-        memberList(key:"mail", completion: completion)
+    func getMember(mail: String, completion:@escaping (Member?, Error?) -> Void) {
+        member(key: mail, completion: completion)
     }
     
-    private func memberList(key: String!, completion:@escaping (Member?, Error?) -> Void) {
+    private func member(key: String!, completion:@escaping (Member?, Error?) -> Void) {
         memberRef()?.queryOrdered(byChild: key).observeSingleEvent(of: .value, with: { SnapShot in
             let data = SnapShot
             guard let member = Member.get(data: data.value as? NSDictionary) else {
@@ -53,6 +53,22 @@ class MemberManager: NSObject{
                 return
             }
             completion(member, nil)
+        })
+    }
+    
+    func getMemberList(completion:@escaping ([Member]?, Error?) -> Void) {
+        memberRef()?.observeSingleEvent(of: .value, with: { SnapShot in
+            var list: [Member] = []
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                guard let member = Member.get(data: data?.value as? NSDictionary) else {
+                    let error = NSError(domain: adDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "資料錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                list.append(member)
+            }
+            completion(list, nil)
         })
     }
     

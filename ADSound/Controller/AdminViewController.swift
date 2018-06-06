@@ -13,9 +13,8 @@ class AdminViewController: UIViewController
 ,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var mainTable: UITableView!
-    @IBOutlet weak var mailLbl: UITextField!
     
-    var memberlist: Member?
+    var memberlist: [Member]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +46,8 @@ class AdminViewController: UIViewController
     }
     
     func getList(){
-        MemberManager.sharedInstance().getMemberList(completion: { (member, error) in
-            if let member = member { self.memberlist = member }
+        MemberManager.sharedInstance().getMemberList(completion: { (list, error) in
+            if let member = list { self.memberlist = member }
             self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
             tbHUD.dismiss()
         })
@@ -61,20 +60,18 @@ class AdminViewController: UIViewController
     }
     
     @IBAction func onAdd(_ sender: Any) {
-        if mailLbl.text == "" {
-            self.showAlert(message: "請確認輸入資訊")
-            return
+        performSegue(withIdentifier: adDefines.kSegueNewMember, sender: memberlist)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == adDefines.kSegueNewMember, let memberList = sender as? [Member]? {
+            let detailView = segue.destination as! NewMemberViewController
+            detailView.memberlist = memberList
         }
-        var list: [String] = []
-        if memberlist != nil { list = (memberlist?.mail)! }
-        if list.index(of: mailLbl.text!) != nil {
-            self.showAlert(message: "帳戶已存在")
-            return
+        if segue.identifier == adDefines.kSegueEditMember, let member = sender as? Member? {
+            let detailView = segue.destination as! NewMemberViewController
+            detailView.editMember = member
         }
-        list.append(mailLbl.text!)
-        var newMember = Member()
-        newMember.mail = list
-        updateMember(newMember)
     }
     
     func updateMember(_ newMember: Member?) {
@@ -91,19 +88,20 @@ class AdminViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = memberlist?.mail?.count else {return 0 }
+        guard let count = memberlist?.count else {return 0 }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MemberCell.self) , for: indexPath) as! MemberCell
-        cell.layoutCell(memberlist?.mail?[indexPath.row])
+        cell.layoutCell(memberlist?[indexPath.row].number)
         return cell
     }
     
     //MARK UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: adDefines.kSegueEditMember, sender: memberlist?[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -112,11 +110,19 @@ class AdminViewController: UIViewController
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         var actions: [UITableViewRowAction] = []
-        let quitAction = UITableViewRowAction(style: .destructive, title: "刪除") { (action, indexPath) in
-                self.showAlert(message: "確定要刪除嗎", completion: {
+        var title = "停用"
+        if !memberlist![indexPath.row].online! {
+            title = "啟動"
+        }
+        let quitAction = UITableViewRowAction(style: .destructive, title: title) { (action, indexPath) in
+                self.showAlert(message: "確定要\(title)嗎", completion: {
                     tbHUD.show()
-                    self.memberlist?.mail?.remove(at: indexPath.row)
-                    self.updateMember(self.memberlist)
+                    if title == "停用" {
+                        self.memberlist![indexPath.row].online = false
+                    } else {
+                        self.memberlist![indexPath.row].online = true
+                    }
+                    self.updateMember(self.memberlist![indexPath.row])
                 })
             }
             actions.append(quitAction)
